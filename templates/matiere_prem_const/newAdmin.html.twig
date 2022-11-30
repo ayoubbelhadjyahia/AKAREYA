@@ -1,0 +1,15 @@
+{% extends 'BaseBack.html.twig' %}
+
+{% block title %}Matiere Premaire{% endblock %}
+
+{% block body %}
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+        <br>
+        <h1 align="center">Ajouter Matiere </h1>
+        <br>
+        {{ include('matiere_prem_const/_formAdmin.html.twig') }}
+
+        <hr>
+        <a href="{{ path('app_matiere_prem_const_indexAdmin') }}"><ion-icon name="chevron-back"></ion-icon></a>
+    </div>
+{% endblock %}

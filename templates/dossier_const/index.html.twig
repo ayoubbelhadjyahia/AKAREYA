@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dossier Construction{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/construction.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de construction</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Dossier Construction</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block body %}
+    <br>
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+
+        <h1 align="center">Dossier Construction </h1>
+
+        <section id="services-cards" class="services-cards">
+            <div class="container" data-aos="fade-up">
+
+                <div class="row gy-4">
+                    {% for dossier_const in dossier_consts %}
+                        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card-item">
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="card-bg" style="background-image: url({{ asset('img/dossier.png') }});"></div>
+                                    </div>
+                                    <div class="col-xl-7 d-flex align-items-center">
+                                        <div class="card-body">
+                                            <h4 class="card-title">{{ dossier_const.userId}}</h4>
+                                            <p>{{ dossier_const.dureeLocationDossierConst ? dossier_const.dureeLocationDossierConst|date('Y-m-d') : '' }}
+                                                <br> {{ dossier_const.idMatiereConst.typeMatiereConst }}
+                                                <br>{{ dossier_const.idTerrainConst }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- End Card Item -->
+                    {% endfor %}
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </section>
+
+        <br>
+
+
+        <br>
+        <button type="button"  class="btn btn-outline-primary">
+     <a href="{{ path('app_dossier_const_new') }}"class="btn-about">Ajouter Dossier</a>
+        </button>
+    </div>
+
+
+
+
+
+    <br>
+    <div class="d-flex justify-content-center mt-5">
+    {% do dossier_consts.setPageRange(2) %}
+    {{ knp_pagination_render(dossier_consts, 'pagination.html.twig') }}
+
+    </div>
+    <br>
+
+{% endblock %}

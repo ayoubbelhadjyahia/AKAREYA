@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matiere Premaire{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('img/7did.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de construction</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Matiere Premaire</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block body %}
+    <br>
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+
+<br>
+
+
+
+    <section id="testimonials" class="testimonials">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Matiere Premiere</h2>
+
+            </div>
+
+            <div class="slides-3 swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    {% for MatierePremConst in MatierePremConst %}
+                    <div class="swiper-slide">
+                        <div class="testimonial-item">
+                            <div class="stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+
+                            <div class="profile mt-auto">
+                                <img src="{{ asset('img/ayoub.png') }}" class="testimonial-img" alt="ayoub">
+                                <h3>{{ MatierePremConst.typeMatiereConst }}</h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+    <!--
+    <table border="2" class="table table-dark">
+        <br>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type matiere</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for MatierePremConst in MatierePremConst %}
+            <tr >
+                <td>{{ MatierePremConst.id }}</td>
+                <td>{{ MatierePremConst.typeMatiereConst }}</td>
+                <td><button class="btn">
+                    <a class="bi bi-zoom-in" href="{{ path('app_matiere_prem_const_show', {'id': MatierePremConst.id}) }}"></a>
+                    </button> <button class="btn">
+                    <a class="bi bi-tools" href="{{ path('app_matiere_prem_const_edit', {'id': MatierePremConst.id}) }}"></a>
+                    </button> </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">pas de donnee</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>-->
+
+    <a href="{{ path('app_matiere_prem_const_new') }}" class="btn-about">Ajouter Matiere </a>
+    <br>
+    <div class="d-flex justify-content-center mt-5">
+    {{ knp_pagination_render(MatierePremConst, 'pagination.html.twig') }}
+    </div>
+<br>
+    <br>
+
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dossier Construction{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/construction.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de construction</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Dossier Construction</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block body %}
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+    <br>
+    <h1 align="center">Dossier</h1>
+    <br>
+    <table border="2" class="table table-dark" >
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dossier_const.id }}</td>
+            </tr>
+            <tr>
+                <th>Date de Creation</th>
+                <td>{{ dossier_const.dureeLocationDossierConst ? dossier_const.dureeLocationDossierConst|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Terrain</th>
+                <td>{{ dossier_const.idTerrainConst }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ dossier_const.userId }}</td>
+            </tr>
+            <tr>
+                <th>Matiere premaire</th>
+                <td>{{ dossier_const.idMatiereConst.typeMatiereConst }}</td>
+            </tr>
+        </tbody>
+    </table>
+     <button class="btn">
+         <a class="bi bi-tools" href="{{ path('app_dossier_const_edit', {'id': dossier_const.id}) }}"></a>
+
+     </button>
+    <hr>
+    <button class="btn">
+        <a class="bi bi-chevron-bar-left" href="{{ path('app_dossier_const_index') }}"></a>
+    </button>
+    <hr>
+            {{ include('dossier_const/_delete_form.html.twig') }}
+
+
+
+
+
+    </div>
+
+{% endblock %}

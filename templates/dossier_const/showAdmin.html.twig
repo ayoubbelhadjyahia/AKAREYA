@@ -1,0 +1,81 @@
+{% extends 'BaseBack.html.twig' %}
+
+{% block title %}Dossier Construction{% endblock %}
+
+{% block body %}
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+        <br>
+        <h1 align="center">Dossier</h1>
+        <br>
+        <table border="2" class="table table-striped" >
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dossier_const.id }}</td>
+            </tr>
+            <tr>
+                <th>Date De Creation</th>
+                <td>{{ dossier_const.dureeLocationDossierConst ? dossier_const.dureeLocationDossierConst|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Terrain</th>
+                <td>{{ dossier_const.idTerrainConst }}</td>
+            </tr>
+            <tr>
+                <th>User</th>
+                <td>{{ dossier_const.userId }}</td>
+            </tr>
+            <tr>
+                <th>Matiere premaire</th>
+                <td>{{ dossier_const.idMatiereConst.typeMatiereConst }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <button class="btn">
+            <a class="bi bi-tools" href="{{ path('app_dossier_const_editAdmin', {'id': dossier_const.id}) }}"><ion-icon name="construct-outline"></ion-icon></a>
+
+        </button>
+        <hr>
+        <button class="btn">
+            <a  href="{{ path('app_dossier_const_indexAdmin') }}"><ion-icon name="chevron-back"></ion-icon>
+            </a>
+        </button>
+        <hr>
+        {{ include('dossier_const/_delete_formAdmin.html.twig') }}
+<hr>
+        <button id ="a" class="btn" style="background:deepskyblue">
+            <a  style="color: #FFFFFF" ><ion-icon name="mail-unread-outline"></ion-icon></a>
+        </button>
+
+
+
+
+    </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <script>
+            $('#a').on('click', function() {
+
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://127.0.0.1:8000/dossier/const/mail",
+                    data: { email: "fourat.cherif@esprit.tn", // app.user.username
+                        //   numero :"+21622839837"  //app.user.num
+                    }
+                })
+                    .done(function( msg ) {
+                        if(msg == "true") {
+                            alert(" votre mail est bien recus! ");
+                            window.location.replace("http://127.0.0.1:8000/dossier/const/admin");
+
+                        }
+                    } )
+            });
+        </script>
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matiere Premaire{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/services-header.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de construction</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Matiere Premaire</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block body %}
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+    <br>
+    <h1 align="center">Modifier Matiere Premaire</h1>
+    <br>
+    {{ include('matiere_prem_const/_form.html.twig',) }}
+<hr>
+    <a class="bi bi-chevron-bar-left" href="{{ path('app_matiere_prem_const_index') }}"></a>
+<hr>
+    {{ include('matiere_prem_const/_delete_form.html.twig') }}
+</div>
+{% endblock %}

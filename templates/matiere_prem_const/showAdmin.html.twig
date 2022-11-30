@@ -1,0 +1,46 @@
+{% extends 'BaseBack.html.twig' %}
+
+{% block title %}Matiere Premiere{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/services-header.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de construction</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Matiere Premaire</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block body %}
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+        <br>
+        <h1 align="center">Matiere Premaire</h1>
+        <br>
+        <table border="2" class="table table-dark">
+            <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ matiere_prem_const.id }}</td>
+            </tr>
+            <tr>
+                <th>Type matiere</th>
+                <td>{{ matiere_prem_const.typeMatiereConst }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a    href="{{ path('app_matiere_prem_const_editAdmin', {'id': matiere_prem_const.id}) }}"><ion-icon name="construct-outline"></ion-icon></a>
+        <hr>
+        <a  href="{{ path('app_matiere_prem_const_indexAdmin') }}"><ion-icon name="chevron-back"></ion-icon></a>
+        <hr>
+        {{ include('matiere_prem_const/_delete_formAdmin.html.twig') }}
+        <hr>
+
+    </div>
+
+{% endblock %}
