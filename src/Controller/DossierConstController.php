@@ -121,7 +121,7 @@ class DossierConstController extends AbstractController
         $dossierConst= $paginator->paginate(
             $donnees, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
-            4/*limit per page*/);
+            3/*limit per page*/);
         return $this->render('dossier_const/index.html.twig', [
             'dossier_consts' => $dossierConst,
         ]);
