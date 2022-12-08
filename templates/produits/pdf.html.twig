@@ -1,0 +1,57 @@
+<body>
+<table width=100%  border="1" align="center">
+
+    <tr >
+        <td width=33% ><p>Adresse:Esprit</p><p>Mail:Akareya@esprit.tn</p><p>Numéro:22558899</p></td>
+        <td width=33% align="center" ><h1>AKAREYA</h1></td>
+        <td width=33% ><p>Année: 2022/2023</p></td>
+    </tr>
+
+</table>
+
+
+<h1 align="center">Produits </h1>
+
+
+<table align="center" border="1" >
+    <thead >
+    <tr bgcolor="grey">
+        <th>Id</th>
+        <th>Marque_produit</th>
+        <th>Prix</th>
+        <th>Type_produit</th>
+
+    </tr>
+    </thead>
+    <tbody id="myTable">
+    {% for produit in produits %}
+        <tr>
+            <td>{{ produit.id }}</td>
+            <td>{{ produit.marqueProduit }}</td>
+            <td>{{ produit.prix }}</td>
+            <td>{{ produit.typeProduit }}</td>
+
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="5">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<br>
+<br>
+<br>
+<table align=right>
+    <tr >
+        <td align=right><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('Tamponsabrine.png') }}" alt="" width="150px" height="150px"></td>
+    </tr>
+    <tr >
+        <td align=right>{{ "now"|date("d/m/Y") }}</td>
+    </tr>
+</table>
+
+<br>
+
+</body>

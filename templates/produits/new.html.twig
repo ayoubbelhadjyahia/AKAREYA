@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Produits{% endblock %}
+
+{% block body %}
+    <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+        <br>
+    <h1>Create new Produits</h1>
+
+    {{ include('produits/_form.html.twig') }}
+
+
+        <br>
+
+    <a href="{{ path('app_produits_index') }}">back to list</a>
+</div>
+{% endblock %}
