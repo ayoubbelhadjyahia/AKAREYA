@@ -1,0 +1,146 @@
+{%extends 'base.html.twig' %}
+
+{% block title %}Offre index{% endblock %}
+ {% block hero %}
+
+  <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/services-header.jpg') }})">
+   <div class="container position-relative d-flex flex-column align-items-center">
+
+    <h2>Gestion des biens </h2>
+    <ol>
+     <li><a hre="">Home</a></li>
+     <li>Les offres</li>
+    </ol>
+
+   </div>
+  </div>
+
+ {% endblock %}
+{% block body %}
+ <style>
+  img{
+   height:300px;
+   width:300px;
+  }
+  .hover{
+   color:rgb(255,196,0);
+  }
+  .amal{
+   text-align:center;
+   color:#0000FF;
+   font-family: cursive;
+  }
+  .fares{
+   text-align:center;
+  }
+  .nael{
+   text-align:right;
+  }
+  .kerfai{
+   color:#0000FF;
+   font-family: cursive;
+  }
+
+ </style>
+
+ <div class="amal">
+  <h1>Offre </h1>
+ </div>
+
+ <section id="portfolio" class="portfolio">
+  <div class="container" data-aos="fade-up">
+
+   <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+    <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+     <li data-filter="*" class="filter-active">les biens que nous disposons actuellement</li>
+    </ul><!-- End Portfolio Filters -->
+
+    {% for offre in offres %}
+     <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="300">
+     <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+      <img src={{  asset('uploads/images/products/'  ~ offre.imageName) }} width="40%">
+           <div class="portfolio-info">
+       <h4>{{ offre.typeBienOffre   }}</h4>
+       <h4>{{ offre.superficieOffre   }}</h4>
+       <h4>{{ offre.categorieOffre   }}</h4>
+       <h4>{{ offre.adresseOffre   }}</h4>
+       <h4>{{ offre.detailsrdv }}</h4>
+            <h4>{{ offre.idProprietaire }}</h4>
+       <h4>
+        {{ include('offre/delete_form_front.html.twig') }}
+       </h4>
+            <h4>
+            <a href="{{ path('app_offre_show', {'id': offre.id}) }}"><i class="bi bi-list-check"></i></a>
+            </h4>
+            <h4>
+            <a href="{{ path('app_offre_edit', {'id': offre.id}) }}"><i class="bi-tools"></i></a>
+            </h4>
+      </div>
+
+     </div><!-- End Portfolio Item -->
+      {% endfor %}
+   </div><!-- End Portfolio Container -->
+
+
+  </div>
+  </div>
+ </section> <!-- End Portfolio Section -->
+ <div class="fares">
+  <a href="{{ path('app_offre_new') }}"><i class="bi bi-plus-square"></i></a>
+ </div>
+ <div class="nael">
+  <div class="kerfai">
+   donner votre avis sur le service de notre site
+  </div>
+  <i class="bi bi-star-fill" data-note="1"></i>
+  <i class="bi bi-star-fill" data-note="2"></i>
+  <i class="bi bi-star-fill" data-note="3"></i>
+  <i class="bi bi-star-fill" data-note="4"></i>
+  <i class="bi bi-star-fill" data-note="5"></i>
+  <div class="kerfai">
+   <i class="note"> Note :</i>
+  </div>
+  <script>
+   let check=false;
+   const stars =document.querySelectorAll('.bi-star-fill');
+   stars.forEach(star=> {
+    star.addEventListener('mouseover', selectStars);
+    star.addEventListener('mouseleave', unselectStars);
+    star.addEventListener('click',activeSelect);
+   })
+   function activeSelect(e){
+
+    document.querySelector(".note").innerHTML ='Note'+e.target.dataset.note;
+   }
+   function selectStars(e){
+    const data =e.target;
+    const etoiles = priviousSiblings(data);
+
+    etoiles.forEach(etoile => {
+     data.classList.add('hover');
+    })
+
+   }
+   function unselectStars(e){
+    const data =e.target;
+    const etoiles = priviousSiblings(data);
+
+    etoiles.forEach(etoile => {
+     data.classList.remove('hover');
+    })
+
+   }
+   function  priviousSiblings(data){
+    let values =[data];
+    while (data=data.previousSibling){
+     if(data.nodeName==='I'){
+      values.push(data);
+     }
+    }
+    return values;
+   }
+  </script>
+ </div>
+ {{ knp_pagination_render(offres) }}
+{% endblock %}

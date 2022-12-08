@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New RdvOffre{% endblock %}
+{% block hero %}
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <h2 data-aos="fade-up">Voulez vous ajouter un rendez_vous ?</h2>
+                    <blockquote data-aos="fade-up" data-aos-delay="100">
+                        <p>Vous trouvez le formuaire ci dessous </p>
+                    </blockquote>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block body %}
+<style>
+    .sabri{
+        text-align:center;
+    }
+    h1{
+        text-align:center;
+        color:#0000FF;
+        font-family: cursive;
+    }
+</style>
+    <h1>Create new Rendez-vous</h1>
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+    {{ include('rdv_offre/_form.html.twig') }}
+<div  class="sabri">
+    <a href="{{ path('app_rdv_offre_index') }}"><i class="bi bi-skip-backward-fill"></i></a>
+</div>
+{% endblock %}

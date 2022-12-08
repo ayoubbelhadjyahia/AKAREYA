@@ -1,0 +1,36 @@
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Type_bien_offre</th>
+        <th>  Prix_offre</th>
+        <th>Superficie_offre </th>
+        <th>Categorie_offre</th>
+        <th>Adresse_offre</th>
+
+    </tr>
+    </thead>
+    <tbody id="myTable">
+
+
+
+    {% for offre in offres %}
+        <tr>
+
+            <td>{{ offre.typeBienOffre }}</td>
+            <td>{{ offre.prixOffre }}</td>
+            <td>{{ offre.superficieOffre }}</td>
+            <td>{{ offre.categorieOffre }}</td>
+            <td>{{ offre.adresseOffre }}</td>
+
+
+        </tr>
+
+
+    {% endfor %}
+
+    </tbody>
+
+
+</table>
+    </body>

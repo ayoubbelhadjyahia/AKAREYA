@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Offre{% endblock %}
+{% block hero %}
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <h2 data-aos="fade-up">voulez vous modifier les details de l 'offre</h2>
+                    <blockquote data-aos="fade-up" data-aos-delay="100">
+                        <p>Vous trouvez le formuaire ci dessous </p>
+                    </blockquote>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block body %}
+    <h1>Edit Offre</h1>
+
+    {{ include('offre/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_offre_index') }}">back to list</a>
+
+     {{ include('offre/_delete_form.html.twig')}}
+{% endblock %}

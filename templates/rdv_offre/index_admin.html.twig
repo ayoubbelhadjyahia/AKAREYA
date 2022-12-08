@@ -1,0 +1,88 @@
+{% extends 'backback.html.twig' %}
+
+{% block title %}RdvOffre {% endblock %}
+ {% block hero %}
+
+     <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/services-header.jpg') }})">
+         <div class="container position-relative d-flex flex-column align-items-center">
+
+             <h2>Gestion des biens</h2>
+             <ol>
+                 <li><a href="">Home</a></li>
+                 <li>les rdv_offres</li>
+             </ol>
+
+         </div>
+     </div>
+
+ {% endblock %}
+{% block body %}
+
+    <h1>RdvOffre </h1>
+    <input id="myInput" class="form-control form-control-navbar" type="search" placeholder="Rechercher" aria-label="rech">
+    <table   id="t" class="table table-dark">
+        <thead>
+        <tr>
+
+            <th>Date_heure_rdv_offre</th>
+          <th>user_id</th>
+
+            <th> mail</th>
+
+
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for rdv_offre in rdv_offres %}
+            <tr>
+
+                <td>{{ rdv_offre.dateHeureRdvOffre ? rdv_offre.dateHeureRdvOffre|date('Y-m-d') : '' }}</td>
+                <td>{{ rdv_offre.userId }}</td>
+
+
+
+
+<td>
+                    <button id ="a" class="btn" style="background:deepskyblue">
+                       envoyer un mail
+                    </button>   </td>         </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script>
+        $('#a').on('click', function() {
+
+
+            $.ajax({
+                method: "POST",
+                url: "http://127.0.0.1:8000/rdv/offre/mail",
+                data: { email: "fourat.cherif@esprit.tn",body:"Monsieur/Madame pour voir les details de votre rendez-vous consultez la rubrique show de notre site "
+                }
+            })
+                .done(function( msg ) {
+                    if(msg == "true") {
+                        alert(" votre mail est bien recus! ");
+                        window.location.replace("http://127.0.0.1:8000/rdv/offre/allrdv");
+
+                    }
+                } )
+        });
+    </script>
+{% endblock %}

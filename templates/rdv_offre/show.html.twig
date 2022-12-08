@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RdvOffre{% endblock %}
+{% block hero %}
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <h2 data-aos="fade-up">voila les details du rendez-vous</h2>
+                    <blockquote data-aos="fade-up" data-aos-delay="100">
+                        <p>Vous trouvez le formuaire ci dessous </p>
+                    </blockquote>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block body %}
+    <h1>RdvOffre</h1>
+
+    <table class="table table-dark">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ rdv_offre.id }}</td>
+            </tr>
+            <tr>
+                <th>Date_heure_rdv_offre</th>
+                <td>{{ rdv_offre.dateHeureRdvOffre ? rdv_offre.dateHeureRdvOffre|date('Y-m-d') : '' }}</td>
+            </tr>
+
+            <tr>
+                <th>User_id</th>
+                <td>{{ rdv_offre.userId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_rdv_offre_index') }}"><i class="bi bi-skip-backward"></i></a>
+
+    <a href="{{ path('app_rdv_offre_edit', {'id': rdv_offre.id}) }}"><i class="bi-tools"></i></a>
+
+    {{ include('rdv_offre/_delete_form.html.twig') }}
+
+
+
+
+
+    </div>
+
+
+
+{% endblock %}

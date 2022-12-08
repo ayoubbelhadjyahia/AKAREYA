@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Offre{% endblock %}
+
+{% block body %}
+    <style>
+        .raouf {
+            text-align:center;
+            color:#0000FF;
+        }
+        .joud{
+            text-align:center;
+        }
+    </style>
+    <div class="raouf">
+    <h1>Create new Offre</h1>
+    </div>
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+    {{ include('offre/_form.html.twig') }}
+</div>
+    <div class="joud">
+    <a href="{{ path('app_offre_index') }}"><i class="bi bi-skip-backward-fill"></i></a>
+    </div>
+    <section id="portfolio" class="portfolio">
+        <div class="container" data-aos="fade-up">
+
+            <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+
+                <ul class="portfolio-flters" data-aos="fade-up" data-aos-delay="100">
+                    <li data-filter="*" class="filter-active">Une petite idéé sur les biens que vous pouvez ajoutez</li>
+                </ul><!-- End Portfolio Filters -->
+
+                <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="300">
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+                        <img src={{asset('assets/images/cosyhome1.jpg') }} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4> nos maisons </h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+                        <img src={{asset("assets/images/cosyhome2.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4> nos maisons</h4>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+                        <img src={{asset("assets/images/cosyhome3.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4> nos maisons</h4>
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+                        <img src={{asset("assets/images/villapin1.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4> nos villas</h4>
+
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+                        <img src={{asset("assets/images/villapin2.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4> nos villas</h4>
+
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-product">
+                        <img src={{asset("assets/images/villapin3.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4> nos villas</h4>
+
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/appartement.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos appartements</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/appartement2.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos appartements</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/appartement5.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos appartements</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/terrainv1.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos terrains</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/terrain2.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos terrains</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/terrain3.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos terrains</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/bureau33.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos bureaux</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/bureau22.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos bureaux</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                    <div class="col-lg-4 col-md-6 portfolio-item filter-books">
+                        <img src={{asset("assets/images/bureau11.jpg" )}} class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h4>nos bureaux</h4>
+
+                        </div>
+                    </div><!-- End Portfolio Item -->
+                </div><!-- End Portfolio Container -->
+
+            </div>
+
+        </div>
+    </section><!-- End Portfolio Section -->
+{% endblock %}

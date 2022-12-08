@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RdvOffre {% endblock %}
+ {% block hero %}
+
+     <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/services-header.jpg') }})">
+         <div class="container position-relative d-flex flex-column align-items-center">
+
+             <h2>Gestion des biens</h2>
+             <ol>
+                 <li><a href="">Home</a></li>
+                 <li>les rdv_offres</li>
+             </ol>
+
+         </div>
+     </div>
+
+ {% endblock %}
+{% block body %}
+ <style>
+     .hamdi{
+         text-align:center;
+     }
+ </style>
+    <h1>RdvOffre </h1>
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th>Date_heure_rdv_offre</th>
+
+                <th>user_id</th>
+
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rdv_offre in rdv_offres %}
+            <tr>
+
+                <td>{{ rdv_offre.dateHeureRdvOffre ? rdv_offre.dateHeureRdvOffre|date('Y-m-d') : '' }}</td>
+                <td>{{ rdv_offre.userId }}</td>
+
+                <td>
+                    <a href="{{ path('app_rdv_offre_show', {'id': rdv_offre.id}) }}"><i class="bi bi-list-check"></i></a>
+                    <a href="{{ path('app_rdv_offre_edit', {'id': rdv_offre.id}) }}"><i class="bi-tools"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<div class="hamdi">
+    <a href="{{ path('app_rdv_offre_new') }}"><i class="bi bi-plus-square"></i></a>
+</div>
+    {{ knp_pagination_render(rdv_offres) }}
+{% endblock %}

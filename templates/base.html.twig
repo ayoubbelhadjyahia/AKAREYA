@@ -12,26 +12,27 @@
 
     <!-- Favicons -->
 
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/a/apple-touch-icon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('imhg/a/apple-touch-icon.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('img/a/favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/a/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('img/a/site.webmanifest') }}">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-{% block css %}
-    <!-- Vendor CSS Files -->
-    <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/aos/aos.css')}}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.0/getting-started/introduction/#css">
 
-    <!-- Template Main CSS File -->
-    <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-{% endblock %}
+    {% block css %}
+        <!-- Vendor CSS Files -->
+        <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/aos/aos.css')}}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.0/getting-started/introduction/#css">
+
+        <!-- Template Main CSS File -->
+        <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+    {% endblock %}
     <!-- =======================================================
     * Template Name: Nova - v1.2.1
     * Template URL: https://bootstrapmade.com/nova-bootstrap-business-template/
@@ -56,7 +57,7 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="http://127.0.0.1:8000/dossier/const/home" class="active">Home</a></li>
+                <li><a href="" class="active">Home</a></li>
                 <li class="dropdown"><a href="#"><span>G.Construction</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
                         <li><a href="http://127.0.0.1:8000/dossier/const/">Dossier</a></li>
@@ -80,9 +81,9 @@
                 </li>
                 <li class="dropdown"><a href="#"><span>G.Bien</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Dossier</a></li>
-                        <li><a href="#">Matiere Premaire</a></li>
-                        <li><a href="#">Materiel de Construction</a></li>
+                        <li><a href="http://127.0.0.1:8000/offre/alloffres">Offre</a></li>
+                        <li><a href="http://127.0.0.1:8000/rdv/offre/all">rdv_offre</a></li>
+
                     </ul>
                 </li>
                 <li class="dropdown"><a href="#"><span>G.Securite</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
@@ -107,23 +108,20 @@
 
 
 {% block hero %}
-<section id="hero" class="hero d-flex align-items-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-4">
-                <h2 data-aos="fade-up">Focus On What Matters</h2>
-                <blockquote data-aos="fade-up" data-aos-delay="100">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis cum recusandae eum laboriosam voluptatem repudiandae odio, vel exercitationem officiis provident minima. </p>
-                </blockquote>
-                <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
-                    <a href="#about" class="btn-get-started">Get Started</a>
-                    <a href="https://www.youtube.com/watch?v=mC50QvugBXg" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
-                </div>
+    <section id="hero" class="hero d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <h2 data-aos="fade-up">Voulez vous ajouter une offre ?</h2>
+                    <blockquote data-aos="fade-up" data-aos-delay="100">
+                        <p>Vous trouvez le formuaire ci dessous </p>
+                    </blockquote>
 
+
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
 {% block body %}
 <main id="main">
@@ -187,13 +185,13 @@
 
         </div>
     </section><!-- End Why Choose Us Section -->
-
+    {% endblock %}
     <!-- ======= Our Services Section ======= -->
     <section id="services-list" class="services-list">
         <div class="container" data-aos="fade-up">
 
             <div class="section-header">
-                <h2>Our Services</h2>
+                <h2>nos services</h2>
 
             </div>
 
@@ -202,8 +200,8 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="100">
                     <div class="icon flex-shrink-0"><i class="bi bi-briefcase" style="color: #f57813;"></i></div>
                     <div>
-                        <h4 class="title"><a href="#" class="stretched-link">Lorem Ipsum</a></h4>
-                        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                        <h4 class="title"><a href="#" class="stretched-link">Gestion des biens </a></h4>
+                        <p class="description">La gestion des biens consiste à manipuler le fait d 'achat de vente et de location ainsi que la publication, la modification ,l'affichage des offres</p>
                     </div>
                 </div>
                 <!-- End Service Item -->
@@ -211,7 +209,7 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="200">
                     <div class="icon flex-shrink-0"><i class="bi bi-card-checklist" style="color: #15a04a;"></i></div>
                     <div>
-                        <h4 class="title"><a href="#" class="stretched-link">Dolor Sitema</a></h4>
+                        <h4 class="title"><a href="#" class="stretched-link">Gestion de sécurité</a></h4>
                         <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -219,7 +217,7 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon flex-shrink-0"><i class="bi bi-bar-chart" style="color: #d90769;"></i></div>
                     <div>
-                        <h4 class="title"><a href="#" class="stretched-link">Sed ut perspiciatis</a></h4>
+                        <h4 class="title"><a href="#" class="stretched-link">Gestion de costruction</a></h4>
                         <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -227,7 +225,7 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="400">
                     <div class="icon flex-shrink-0"><i class="bi bi-binoculars" style="color: #15bfbc;"></i></div>
                     <div>
-                        <h4 class="title"><a href="#" class="stretched-link">Magni Dolores</a></h4>
+                        <h4 class="title"><a href="#" class="stretched-link">Gestion de decoration</a></h4>
                         <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
                     </div>
                 </div><!-- End Service Item -->
@@ -235,21 +233,14 @@
                 <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="500">
                     <div class="icon flex-shrink-0"><i class="bi bi-brightness-high" style="color: #f5cf13;"></i></div>
                     <div>
-                        <h4 class="title"><a href="#" class="stretched-link">Nemo Enim</a></h4>
+                        <h4 class="title"><a href="#" class="stretched-link">Gestion de démenagement</a></h4>
                         <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
                     </div>
                 </div><!-- End Service Item -->
 
-                <div class="col-lg-4 col-md-6 service-item d-flex" data-aos="fade-up" data-aos-delay="600">
-                    <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week" style="color: #1335f5;"></i></div>
-                    <div>
-                        <h4 class="title"><a href="#" class="stretched-link">Eiusmod Tempor</a></h4>
-                        <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-                    </div>
-                </div><!-- End Service Item -->
 
-            </div>
 
+        </div>
         </div>
     </section><!-- End Our Services Section -->
 
@@ -258,9 +249,8 @@
         <div class="container" data-aos="fade-up">
             <div class="row justify-content-center">
                 <div class="col-lg-6 text-center">
-                    <h3>Ut fugiat aliquam aut non</h3>
-                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                    <a class="cta-btn" href="#">Call To Action</a>
+                    <h3>Votre propriété est sous nos soins</h3>
+
                 </div>
             </div>
 
@@ -423,11 +413,13 @@
 
             </div>
 
+
+
         </div>
     </section><!-- End Recent Blog Posts Section -->
 
 </main><!-- End #main -->
-{% endblock %}
+
 <!-- ======= Footer ======= -->
 <footer id="footer" class="footer">
 
@@ -436,9 +428,9 @@
             <div class="row gy-4">
                 <div class="col-lg-5 col-md-12 footer-info">
                     <a href="index.html" class="logo d-flex align-items-center">
-                        <span>Nova</span>
+                        <span>Alakaria</span>
                     </a>
-                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                    <p>Alakria est une application web dedié pour la location ,la vente , l'achat , pour assuer aussi la sécurité de vos biens , de vous aider à démanager , à décorer votre maison , et à vous aider à construire votre proprieté </p>
                     <div class="social-links d-flex  mt-3">
                         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
                         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
@@ -476,7 +468,7 @@
                         New York, NY 535022<br>
                         United States <br><br>
                         <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        <strong>Email:</strong> Alakkaria@gmail.com<br>
                     </p>
 
                 </div>
@@ -488,7 +480,7 @@
     <div class="footer-legal">
         <div class="container">
             <div class="copyright">
-                &copy; Copyright <strong><span>Ayoub :)</span></strong> h.All Rights Reserved
+                &copy; Copyright <strong><span>Alakarya</span></strong> h.All Rights Reserved
             </div>
             <div class="credits">
                 <!-- All the links in the footer should remain intact. -->
@@ -505,16 +497,16 @@
 <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <div id="preloader"></div>
-
+{% block javascripts %}
 <!-- Vendor JS Files -->
 <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
-    <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
-    <script src="{{ asset('assets/js/main.js') }}"></script>
-
+<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}
 </body>
 
 </html>
