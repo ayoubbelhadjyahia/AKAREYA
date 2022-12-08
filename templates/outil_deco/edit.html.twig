@@ -1,0 +1,32 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Edit OutilDeco{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/images.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de construction</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Gestion de construction</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+
+<h1>Edit OutilDeco</h1>
+
+    {{ include('outil_deco/_form.html.twig', {'button_label': ''}) }}
+
+    <hr>
+    <a class= "bi bi-chevron-bar-left"  href="{{ path('app_outil_deco_index') }}"></a>
+        <hr>
+    {{ include('outil_deco/_delete_form.html.twig') }}
+</div>
+{% endblock %}

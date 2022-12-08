@@ -1,0 +1,100 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}MissionDeco{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/images.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de decoration</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Gestion de decoration</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+    <h1 align="center"> MissionDeco</h1>
+
+    <table class="table table-dark">
+        <tbody>
+
+            <tr>
+                <th>Intituler_mission_deco</th>
+                <td>{{ mission_deco.intitulerMissionDeco }}</td>
+            </tr>
+            <tr>
+                <th>Date_debut_mission</th>
+                <td>{{ mission_deco.dateDebutMission ? mission_deco.dateDebutMission|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Date_fin_mission</th>
+                <td>{{ mission_deco.dateFinMission ? mission_deco.dateFinMission|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Localisation_mission</th>
+                <td>{{ mission_deco.localisationMission }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn">
+    <a  class="bi bi-chevron-bar-left" href="{{ path('app_mission_deco_index') }}"></a>
+    </button>
+    <hr>
+     <button class="btn">
+    <a class="bi-tools" href="{{ path('app_mission_deco_edit', {'id': mission_deco.id}) }}"></a>
+     </button>
+    <hr>
+    {{ include('mission_deco/_delete_form.html.twig') }}
+</div>
+    <p>
+        {% set fm= mission_deco.dateFinMission ? mission_deco.dateFinMission|date('m') : ''  %}
+        {% set dm=  mission_deco.dateDebutMission ? mission_deco.dateDebutMission|date('m') : '' %}
+        {% set fj= mission_deco.dateFinMission ? mission_deco.dateFinMission|date('d') : ''  %}
+        {% set dj=  mission_deco.dateDebutMission ? mission_deco.dateDebutMission|date('d') : '' %}
+
+
+
+
+    </p>
+    <section>
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row">
+            <div class="col-lg-7 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <h3> <br>duree de mission en jour:</h3>
+
+
+
+
+              
+
+                <div class="row gy-4">
+                        <div class="icon flex-shrink-0">
+                            <i class="bi bi-calendar4-week" style="color: #1335f5;"></i></div>
+                            <span>{{ (fm-dm)*30+(fj-dj) }}j</span>
+                        </div>
+                    </div><!-- End Icon List Item-->
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="col-lg-5 position-relative aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                <div class="phone-wrap">
+                    <img src="assets/img/iphone.png" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </section>
+{% endblock %}

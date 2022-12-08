@@ -1,0 +1,69 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Mission de decoration{% endblock %}
+{% block hero %}
+
+    <div class="breadcrumbs d-flex align-items-center" style="background-image: url({{ asset('assets/img/images.jpg') }})">
+        <div class="container position-relative d-flex flex-column align-items-center">
+
+            <h2>Gestion de decoration</h2>
+            <ol>
+                <li><a href="http://127.0.0.1:8000/dossier/const/home">Home</a></li>
+                <li>Gestion de decoration</li>
+            </ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block body %}
+<div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+    <h1 align="center"> Mission de decoration</h1>
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+
+                <th>Intituler_mission_deco</th>
+                <th>Date_debut_mission</th>
+                <th>Date_fin_mission</th>
+                <th>Localisation_mission</th>
+                <th>type_outil_mission</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for mission_deco in mission_decos %}
+            <tr>
+               
+                <td>{{ mission_deco.intitulerMissionDeco }}</td>
+                <td>{{ mission_deco.dateDebutMission ? mission_deco.dateDebutMission|date('Y-m-d') : '' }}</td>
+                <td>{{ mission_deco.dateFinMission ? mission_deco.dateFinMission|date('Y-m-d') : '' }}</td>
+                <td>{{ mission_deco.localisationMission }}</td>
+                <td>{{ mission_deco.idOutilDeco.typeOutilD }}</td>
+                <td>
+                    <button class="btn">
+                    <a href="{{ path('app_mission_deco_show', {'id': mission_deco.id}) }}"><i class="bi bi-list-ul"></i></a>
+                    </button>
+                    <button class="btn">
+                    <a href="{{ path('app_mission_deco_edit', {'id': mission_deco.id}) }}"><i class="bi-tools"></i></a>
+                    </button>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_mission_deco_new') }}">Ajouter Mission</a>
+    <br>
+    <div class="d-flex justify-content-center mt-5">
+        {{ knp_pagination_render(mission_decos, 'pagination.html.twig') }}
+    </div>
+
+</div>
+{% endblock %}
