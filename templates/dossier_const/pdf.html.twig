@@ -1,0 +1,59 @@
+
+<body>
+<table width=100%  border="1" align="center">
+
+    <tr >
+        <td width=33% ><p>Adresse:esprit</p><p>mail:Akareya@esprit.tn</p><p>num:22558899</p></td>
+    <td width=33% align="center" ><h1>AKAREYA</h1></td>
+        <td width=33% ><p>anneé 2022/2023</p></td>
+    </tr>
+
+</table>
+
+
+        <h1 align="center">Dossier Construction </h1>
+
+
+             <table align="center" border="1" >
+                                    <thead >
+                                    <tr bgcolor="grey">
+                                        <th>Id</th>
+                                        <th>Date De Creation</th>
+                                        <th>Terrain</th>
+                                        <th>User</th>
+                                        <th>Matiere premaire</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody >
+                                    {% for dossier_const in dossier_consts %}
+                                        <tr >
+                                            <td>{{ dossier_const.id }}</td>
+                                            <td>{{ dossier_const.dureeLocationDossierConst ? dossier_const.dureeLocationDossierConst|date('Y-m-d') : '' }}</td>
+                                            <td>{{ dossier_const.idTerrainConst }}</td>
+                                            <td>{{ dossier_const.userId }}</td>
+                                            <td>{{ dossier_const.idMatiereConst.typeMatiereConst }}</td>
+
+                                        </tr>
+
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
+<br>
+<br>
+<br>
+<table align=right>
+    <tr >
+        <td align=right><img src="{{ app.request.getSchemeAndHttpHost() ~ asset('tampon.jpg') }}" alt="" width="150px" height="150px"></td>
+    </tr>
+    <tr >
+        <td align=right>{{ "now"|date("d/m/Y") }}</td>
+    </tr>
+</table>
+
+    <br>
+
+</body>
+
+
+

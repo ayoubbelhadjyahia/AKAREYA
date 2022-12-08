@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\DossierConst;
 use App\Form\DossierConstType;
 use App\Repository\DossierConstRepository;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -87,14 +89,49 @@ class DossierConstController extends AbstractController
     public function reservation(Request $request,\Swift_Mailer $mailer): Response
     {
         $email= $request->request->get('email');
-        $message = (new \Swift_Message('une nouvelle reservation'))
+        $body=$request->request->get('body');
+        $message = (new \Swift_Message('AKAREYA'))
             ->setFrom('ayoub.belhadjyahia@esprit.tn')
             ->setTo($email)
             ->setBody(
-                'consulter notre site AKAREYA');
+                $body);
         $mailer->send($message);
         return new Response("true");
     }
+
+
+    #[Route('/adminPDF', name: 'app_dossier_const_indexAdminPDF', methods: ['GET'])]
+    public function PDF(DossierConstRepository $dossierConstRepository): Response
+    {
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+        $pdfOptions->setIsRemoteEnabled(true);
+        $dompdf = new Dompdf($pdfOptions);
+        $context = stream_context_create([
+            'ssl'=>[
+                'verify_peer'=>FALSE,
+                'verify_peer_name'=>FALSE,
+                'allow_self_signed'=>TRUE,
+            ]
+        ]);
+
+        // Instantiate Dompdf with our options
+        $dompdf->setHttpContext($context);
+        $dossier=$dossierConstRepository->findAll();
+        $html = $this->renderView('dossier_const/PDF.html.twig', [
+            'dossier_consts' =>$dossier ,
+        ]);
+        $dompdf->loadHtml($html);
+        define("DOMPDF_ENABLE_REMOTE", false);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream("Dossier.pdf", [
+            "Attachment" => true
+        ]);
+        return $this->indexAdmin();
+    }
+
+
 
 
 
@@ -117,7 +154,7 @@ class DossierConstController extends AbstractController
     #[Route('/', name: 'app_dossier_const_index', methods: ['GET'])]
     public function index(Request $request, PaginatorInterface $paginator): Response
     {
-        $donnees = $this->getDoctrine()->getRepository(DossierConst::class)->findbyid(1);
+        $donnees = $this->getDoctrine()->getRepository(DossierConst::class)->findAll();
         $dossierConst= $paginator->paginate(
             $donnees, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,

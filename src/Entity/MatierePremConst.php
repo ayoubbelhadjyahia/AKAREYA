@@ -7,8 +7,11 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
 #[ORM\Entity(repositoryClass: MatierePremConstRepository::class)]
+#[Vich\Uploadable]
 class MatierePremConst
 {
     #[ORM\Id]
@@ -21,6 +24,12 @@ class MatierePremConst
 
     #[ORM\OneToMany(mappedBy: 'id_matiere_const', targetEntity: DossierConst::class)]
     private Collection $dossierConsts;
+
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'imageName')]
+    private ?File $imageFile = null;
+
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $imageName = null;
 
     public function __construct()
     {
@@ -72,5 +81,29 @@ class MatierePremConst
         }
 
         return $this;
+    }
+    /**
+     * @param  File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+
+    public function setImageFile( $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
     }
 }

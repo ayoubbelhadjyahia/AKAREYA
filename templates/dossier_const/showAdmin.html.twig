@@ -62,8 +62,7 @@
                 $.ajax({
                     method: "POST",
                     url: "http://127.0.0.1:8000/dossier/const/mail",
-                    data: { email: "fourat.cherif@esprit.tn", // app.user.username
-                        //   numero :"+21622839837"  //app.user.num
+                    data: { email: "fourat.cherif@esprit.tn",body:"Mr/Mm{{ dossier_const.userId  }} ,consulter notre site pour voir les modification affectuer"
                     }
                 })
                     .done(function( msg ) {

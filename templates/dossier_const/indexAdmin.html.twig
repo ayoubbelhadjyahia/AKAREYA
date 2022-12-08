@@ -15,9 +15,13 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title"><strong>Liste de dossier</strong></h5>
+                        <h5 class="card-title"><strong>Listes des dossiers</strong></h5>
 
                         <div class="card-tools">
+                            <div class="btn-group">
+                                <input id="myInput" class="form-control form-control-navbar" type="search" placeholder="Rechercher" aria-label="rech">
+
+                            </div>
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
                                 <i class="fas fa-minus"></i>
                             </button>
@@ -26,8 +30,7 @@
                             <button type="button" class="btn btn-tool" data-card-widget="remove">
                                 <i class="fas fa-times"></i>
                             </button>
-                            <input id="myInput" class="form-control form-control-navbar" type="search" placeholder="rechercher" aria-label="rech">
-
+                            
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -73,6 +76,9 @@
                                 </table>
                                 <br>
                                 <a href="{{ path('app_dossier_const_newAdmin') }}"class="btn-about">Ajouter Dossier</a>
+                                <br>
+                                <br>
+                                <a href="{{ path('app_dossier_const_indexAdminPDF') }}"class="btn-about"><ion-icon name="cloud-download-outline"></ion-icon></a>
 
 
                             </div>
@@ -186,7 +192,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Suivi</h5>
+                        <h5 class="card-title"><strong>Suivi</strong></h5>
 
                         <div class="card-tools">
                             <button type="button" class="btn btn-tool" data-card-widget="collapse">
